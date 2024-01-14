@@ -45,13 +45,24 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 0 10px; /* Füge horizontalen Abstand hinzu */  
 }
+
 button:hover {
   border-color: #646cff;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  padding: 1.5em;
+  margin-bottom: 2rem; /* Erhöhe den Abstand zum unteren Element */
+  will-change: filter;
+  transition: filter 300ms;  
 }
 
 @media (prefers-color-scheme: light) {
