@@ -3,6 +3,21 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  display: flex; /* Fügt Flexbox hinzu */
+  flex-direction: column; /* Ordnet Elemente vertikal an */
+  justify-content: center; /* Zentriert Elemente vertikal */
+  gap: 2rem; /* Abstand zwischen den Elementen innerhalb des root-Containers */
+}
+
+.App-header .logo {
+  margin-bottom: 3rem; /* Erhöht den Abstand zwischen Logo und Buttons */
+}
+
+.App-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem; /* Erhöht den Abstand zwischen den Buttons */
 }
 
 .logo {
@@ -17,6 +32,22 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; /* Anpassen für Abstand zwischen Logo und Buttons */
+  padding: 2rem; /* Optional für zusätzlichen Abstand */
+  text-align: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem; /* Anpassen für Abstand zwischen den Buttons */  
 }
 
 @keyframes logo-spin {
