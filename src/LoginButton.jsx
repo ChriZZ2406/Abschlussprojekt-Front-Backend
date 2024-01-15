@@ -4,7 +4,7 @@ import React from 'react';
 const LoginButton = ({ onClick }) => {
   return (
     <button onClick={onClick}>
-      Login
+      Login with Google
     </button>
   );
 }
