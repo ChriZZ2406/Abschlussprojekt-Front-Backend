@@ -1,7 +1,7 @@
 import React from 'react';
-import LoginButton from './LoginButton';
-import NewAccountButton from './NewAccountButton';
-import './App.css';
+import LoginButton from '../LoginButton';
+import NewAccountButton from '../NewAccountButton';
+import '../App.css';
 
 function App() {
   // definiert die Funktion für den Login-Button
@@ -9,11 +9,11 @@ function App() {
     // Die Logik für die Authentifizierung käme hier hin
   };
 
-  // Logik für das Erstellen eines neuen Kontos hier
   const handleNewAccountClick = () => {
+    // Logik für das Erstellen eines neuen Kontos hier
     window.location.href = "https://accounts.google.com/o/oauth2/v2/auth?scope=openid&include_granted_scopes=true&response_type=token&state=state_parameter_passthrough_value&redirect_uri=http://localhost:5173/login/google&client_id=524319842420-0kk4ugtrf9mb5rs16mvs97guldts9iqo.apps.googleusercontent.com"
   };
-
+  
   return (
     <div className="App">
       <header className="App-header">
