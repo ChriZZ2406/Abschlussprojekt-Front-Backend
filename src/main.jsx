@@ -20,7 +20,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 //#################################routen
-import Root from './routes/roote';
+import Root from './routes/root';
 import LoginGoogle from './routes/logingoogle';
 
 const router = createBrowserRouter([
