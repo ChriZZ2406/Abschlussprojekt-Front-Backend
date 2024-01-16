@@ -62,7 +62,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a; /* Button-Hintergrund im Darkmode */
+  background-color: #242424; /* Button-Hintergrund im Darkmode */
   color: white; /* Button-Textfarbe im Darkmode */
   cursor: pointer;
   transition: border-color 0.25s;
