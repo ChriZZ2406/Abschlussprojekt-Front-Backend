@@ -4,7 +4,7 @@ const testData = {
     "id": "1234567890",
     "email": "iam1337@gmail.com",
     "provider": "google",
-    "name": "1337",
+    "name": "1337lol",
     "given_name": "Chris"
 }
 
