@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
@@ -10,17 +10,17 @@ ReactDOM.render(
     <App />
   </React.StrictMode>,
   document.getElementById('root')
-);
+);*/
 
 //########## Was soll der Part und was handelt dieser? RS Karim #############
-/*
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 //#################################routen
-import Root from './routes/roote';
+import Root from './routes/root';
 import LoginGoogle from './routes/logingoogle';
 
 const router = createBrowserRouter([
@@ -40,4 +40,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-*/
