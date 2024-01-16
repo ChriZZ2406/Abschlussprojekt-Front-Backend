@@ -18,7 +18,7 @@
   flex-direction: row;
   align-items: center;
   gap: 1rem; /* Erhöht den Abstand zwischen den Buttons */
-  background-color: #222; /* Hintergrund des Logo schwarz, wenn kein Darkmode*/
+  background-color: #242424; /* Hintergrund des Logo schwarz, wenn kein Darkmode*/
 }
 
 .logo {

@@ -25,7 +25,7 @@ function LoginGoogle() {
 
     return (
         <>
-            <h1>Test</h1>
+            <h1>Account Information</h1>
             <p><a href="/">Home</a></p>
             <article>
                 {(data.map((parameter) => {
