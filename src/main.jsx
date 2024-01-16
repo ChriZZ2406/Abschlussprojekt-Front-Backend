@@ -12,7 +12,6 @@ ReactDOM.render(
   document.getElementById('root')
 );*/
 
-//########## Was soll der Part und was handelt dieser? RS Karim #############
 
 import React from 'react';
 import ReactDOM from 'react-dom';
