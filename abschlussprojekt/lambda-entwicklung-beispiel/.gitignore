@@ -3,5 +3,4 @@
 # Ignoriere den node_modules-Ordner
 node_modules/
 
-# Ignoriere die index1.js-Datei
-index1.js
+.env
