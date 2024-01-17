@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './nab.css';
 
 // Man definiert eine Button-Komponente für die Erstellung eines neuen Kontos
 const NewAccountButton = ({ onClick }) => {
