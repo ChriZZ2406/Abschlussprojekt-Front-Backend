@@ -38,7 +38,7 @@ const sequelize = new Sequelize({
   database: "Userdata",
   port: "3306",
   username: "admin",
-  password: "Techstarter",
+  password: "",
 });
 
 // CREATE TABLE User (
