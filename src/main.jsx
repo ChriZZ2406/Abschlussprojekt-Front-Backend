@@ -5,11 +5,16 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 //#################################routen
 import Root from './routes/root';
 import LoginGoogle from './routes/logingoogle';
+import AccountErstellung from './routes/newacc';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+  },
+  {
+    path: "/newacc",
+    element: <AccountErstellung />,
   },
   {
     path: "/login/google",
