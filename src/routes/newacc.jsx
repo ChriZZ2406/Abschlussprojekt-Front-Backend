@@ -2,7 +2,7 @@ import React from 'react';
 import './newacc.css';
 
 // Man definiert eine Button-Komponente für die Erstellung eines neuen Kontos
-const NewAccountButton = ({ onClick }) => {
+const NewAccount = ({ onClick }) => {
   return (
     <button onClick={onClick}>
       New Account
@@ -60,4 +60,4 @@ function App() {
   );
 }
 
-export default NewAccountButton;
+export default NewAccount;
