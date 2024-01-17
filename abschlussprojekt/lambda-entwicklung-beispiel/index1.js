@@ -1,6 +1,6 @@
 const { Sequelize } = require("sequelize");
 
-require('dotenv').config(); // Lädt die Werte aus der .env-Datei in den Prozess
+require('dotenv').config({ path: './.env' }); // Lädt die Werte aus der .env-Datei in den Prozess
 
 const apiEvent = {
   version: "2.0",
@@ -27,7 +27,7 @@ const sequelize = new Sequelize({
   host: process.env.HOST,
   database: process.env.DATABASE,
   port: process.env.PORT,
-  username: process.env.USERNAME,
+  username: process.env.DB_USER,
   password: process.env.PASSWORD,
 });
 
@@ -52,7 +52,7 @@ const main = async () => {
 
     const [results, metadata] = await sequelize.query("SELECT * FROM User");
     console.log(results);
-    console.log(metadata);
+    // console.log(metadata);
   } catch (error) {
     console.error("Unable to connect to the database:", error);
   }

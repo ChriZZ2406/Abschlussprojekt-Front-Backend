@@ -13,7 +13,7 @@
 // komplettes Event zu finden https://github.com/aws2302/abschlussprojekt/blob/dev-karim/aws/events/dev.json
 const apiEvent = {
   version: "2.0",
-  routeKey: "POST /example/path",
+  routeKey: "POST /login/google",
   rawQueryString: "provider=google&token=xxx",
   queryStringParameters: {
     provider: "google",
@@ -38,7 +38,7 @@ const sequelize = new Sequelize({
   database: "Userdata",
   port: "3306",
   username: "admin",
-  password: "",
+  password: "Techstarter",
 });
 
 // CREATE TABLE User (
@@ -60,7 +60,7 @@ const sequelize = new Sequelize({
     const ed = apiEvent.body;
     // const [results, metadata] = await sequelize.query(`INSERT INTO User (Name, Email, Google_id, Profilbild) VALUES ('${ ed.name }', '${ ed.email }', '${ ed.google_id }', '${ ed.profilbild }')`);
         // const [results, metadata] = await sequelize.query(`CREATE TABLE User (UserID, RealName, EmailAdress, AuthProvider, ProfileImg)  VALUES ('${ ed.userid }', '${ ed.name }', '${ ed.email }', '${ ed.google_id }', '${ ed.profilbild }')          `);
-    const [results, metadata] = await sequelize.query("SELECT * FROM Userdata");
+    const [results, metadata] = await sequelize.query("SELECT * FROM User");
     console.log(results);
     console.log(metadata);
   } catch (error) {
