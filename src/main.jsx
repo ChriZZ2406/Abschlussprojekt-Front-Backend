@@ -18,7 +18,7 @@ const router = createBrowserRouter([
 ]);
 
 const container = document.getElementById('root');
-const root = createRoot(container); // Erstellt die Wurzel.
+const root = createRoot(container); // Erstellt Root
 
 root.render(
   <React.StrictMode>
