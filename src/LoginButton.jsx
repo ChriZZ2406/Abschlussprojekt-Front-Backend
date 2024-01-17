@@ -1,10 +1,10 @@
 import React from 'react';
 
-// Man definiert eine Button-Komponente für den Login
+// Diese Komponente wird für den Login via Google verwendet
 const LoginButton = ({ onClick }) => {
   return (
     <button onClick={onClick}>
-      Login with Google
+      Login / Register with Google
     </button>
   );
 }

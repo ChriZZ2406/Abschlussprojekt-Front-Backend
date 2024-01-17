@@ -1,22 +1,5 @@
-/*import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-//##################### routes
-// import
-// import
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);*/
-
-//########## Was soll der Part und was handelt dieser? RS Karim #############
-
 import React from 'react';
-import ReactDOM from 'react-dom';
-//import App from './App';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 //#################################routen
@@ -34,9 +17,11 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container); // Erstellt die Wurzel.
+
+root.render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );

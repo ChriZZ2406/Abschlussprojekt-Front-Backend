@@ -1,24 +1,38 @@
+/* Grundlegende Stileinstellungen für Darkmode */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87); /* Textfarbe für den Darkmode */
+  background-color: #242424; /* Hintergrundfarbe für den Darkmode */
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #242424; /* Hintergrundfarbe für den Body im Darkmode */
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  display: flex; /* Fügt Flexbox hinzu */
-  flex-direction: column; /* Ordnet Elemente vertikal an */
-  justify-content: center; /* Zentriert Elemente vertikal */
-  gap: 2rem; /* Abstand zwischen den Elementen innerhalb des root-Containers */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .App-header .logo {
-  margin-bottom: 3rem; /* Erhöht den Abstand zwischen Logo und Buttons */
-}
-
-.App-body {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem; /* Erhöht den Abstand zwischen den Buttons */
-  background-color: #242424; /* Hintergrund des Logo schwarz, wenn kein Darkmode*/
+  margin-bottom: 3rem;
 }
 
 .logo {
@@ -28,49 +42,60 @@
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
-.app-container {
+.App-body {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 2rem; /* Anpassen für Abstand zwischen Logo und Buttons */
-  padding: 2rem; /* Optional für zusätzlichen Abstand */
-  text-align: center;
+  gap: 1rem; /* Abstand zwischen den Buttons */
 }
 
-.buttons-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem; /* Anpassen für Abstand zwischen den Buttons */  
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #242424; /* Button-Hintergrund im Darkmode */
+  color: white; /* Button-Textfarbe im Darkmode */
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin: 0 10px; /* Abstand zwischen den Buttons */
 }
 
+button:hover {
+border-color: #646cff; /* Farbe für den Hover-Effekt der Buttons */
+}
+
+button:focus,
+button:focus-visible {
+outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Stile für Animationen und zusätzliche Komponenten */
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+from {
+transform: rotate(0deg);
+}
+to {
+transform: rotate(360deg);
+}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
+/* Zusätzliche Komponenten- und Hilfsklassen-Stile */
 .card {
-  padding: 2em;
+padding: 2em;
+background-color: #333; /* Hintergrundfarbe für Karten im Darkmode */
+color: #fff; /* Textfarbe für Karten im Darkmode */
 }
 
 .read-the-docs {
-  color: #888;
+color: #888; /* Farbe für Text, der nicht hervorgehoben werden muss */
 }
 
