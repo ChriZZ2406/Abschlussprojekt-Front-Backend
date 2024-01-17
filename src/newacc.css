@@ -1,16 +1,14 @@
-/* DeinStylesheet.css */
-
 .account-erstellung-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* 100% der Bildschirmhöhe */
+  height: 100vh; 
 }
 
 .logo {
   margin-bottom: 20px;
-  width: 100px; /* Passe die Breite nach Bedarf an */
+  width: 175px; 
 }
 
 .eingabefelder {
