@@ -1,4 +1,6 @@
-/* App.css */
+/* newsfeed.css */
+
+/* Flex-Container für die gesamte App, vertikal ausgerichtet */
 .app {
   display: flex;
   flex-direction: column; /* Änderung der Ausrichtung auf Spalten */
@@ -7,15 +9,17 @@
   height: 100vh;
 }
 
+/* Logo-Styling */
 .logo {
   height: 100px;
   width: auto;
   padding: 1.5em;
   margin-bottom: 2rem;
   will-change: filter;
-  transition: filter 300ms;  
+  transition: filter 300ms;
 }
 
+/* Chat-Fenster-Styling */
 .chat {
   border: 1px solid #ccc;
   width: 300px;
@@ -23,32 +27,45 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Container für Nachrichten, vertikal ausgerichtet */
 .messages {
-  height: 200px;
-  overflow-y: scroll;
-  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: column; /* Änderung auf Spaltenausrichtung */
 }
 
+/* Stil für jede Sprechblase (Nachricht) */
 .message {
+  max-width: 70%;
+  margin-bottom: 15px;
   padding: 10px;
-  margin-bottom: 5px;
+  border-radius: 10px;
   background-color: #f0f0f0;
-  border-radius: 5px;
+  color: darkblue;
+  margin-right: 50px; /* Ändere diesen Wert, um die Sprechblasen horizontal zu versetzen */
 }
 
+/* Benutzerinformationen-Stil in der Sprechblase, rechts ausgerichtet */
+.user-info {
+  align-self: flex-end; /* Rechtsausrichtung für Benutzerinformationen */
+  margin-right: 5px; /* Margin für die Positionierung */
+  font-size: 0.8em;
+  color: #999;
+}
 
-
+/* Stil für den Eingabecontainer */
 .input-container {
   display: flex;
   margin-top: 10px;
 }
 
+/* Stil für das Eingabefeld */
 input {
   flex: 1;
   padding: 5px;
   margin-right: 5px;
 }
 
+/* Stil für den Senden-Button */
 button {
   padding: 5px 10px;
   background-color: #4caf50;
