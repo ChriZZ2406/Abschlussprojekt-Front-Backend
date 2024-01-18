@@ -1,40 +1,40 @@
+// newsfeed.jsx
 import React, { useState } from 'react';
-import Chat, { NewsFeed } from './chat';
-import Login from './login';
 import '../newsfeed.css';
 
-/*function newsfeed() {
-  const [isLoggedIn, setLoggedIn] = useState(false);
-  const [currentUser, setCurrentUser] = useState(null);
+const App = () => {
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
 
-  const handleLogin = (user) => {
-    setLoggedIn(true);
-    setCurrentUser(user);
-  };*/
-
-  const handleLogout = () => {
-    setLoggedIn(false);
-    setCurrentUser(null);
+  const handleSendMessage = () => {
+    if (newMessage.trim() !== '') {
+      setMessages([...messages, { text: newMessage }]);
+      setNewMessage('');
+    }
   };
 
   return (
-    <div className="newsfeed-container">
-      <div className="login-panel">
-        {isLoggedIn ? (
-          <div>
-            <p>Eingeloggt als: {currentUser}</p>
-            <button onClick={handleLogout}>Logout</button>
-          </div>
-        ) : (
-          <Login onLogin={handleLogin} />
-        )}
-      </div>
-      <div className="main-content">
-        <NewsFeed />
-        <Chat />
+    <div className="app">
+      <img src="https://cdn.discordapp.com/attachments/1195301143161606205/1195301598507827240/techst_logo_rz_white.png?ex=65b37e5c&is=65a1095c&hm=951cba6cabd865ab2f4e7c4fd8e295c18bb4f3b9a3474d434849184a84fcbd48&" alt="Logo" className="logo" />
+      <div className="chat">
+        <div className="messages">
+          {messages.map((message, index) => (
+            <div key={index} className="message">
+              {message.text}
+            </div>
+          ))}
+        </div>
+        <div className="input-container">
+          <input
+            type="text"
+            value={newMessage}
+            onChange={(e) => setNewMessage(e.target.value)}
+          />
+          <button onClick={handleSendMessage}>Send</button>
+        </div>
       </div>
     </div>
   );
-}
+};
 
-export default NewsFeed;
+export default App;

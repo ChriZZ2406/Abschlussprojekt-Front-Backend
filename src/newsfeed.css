@@ -1,22 +1,58 @@
-.app-container {
-    display: flex;
-  }
-  
-  .login-panel {
-    width: 200px;
-    padding: 20px;
-    border-right: 1px solid #ccc;
-  }
-  
-  .login-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .main-content {
-    flex: 1;
-    padding: 20px;
-  }
-  
-  /* Weitere Stilisierungen nach Bedarf */
-  
+/* App.css */
+.app {
+  display: flex;
+  flex-direction: column; /* Änderung der Ausrichtung auf Spalten */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  padding: 1.5em;
+  margin-bottom: 2rem;
+  will-change: filter;
+  transition: filter 300ms;  
+}
+
+.chat {
+  border: 1px solid #ccc;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.messages {
+  height: 200px;
+  overflow-y: scroll;
+  border-bottom: 1px solid #ccc;
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+
+
+.input-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
