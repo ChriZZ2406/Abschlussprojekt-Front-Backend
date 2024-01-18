@@ -35,6 +35,7 @@
 
 /* Stil für jede Sprechblase (Nachricht) */
 .message {
+  position: relative;
   max-width: 70%;
   margin-bottom: 15px;
   padding: 10px;
@@ -72,4 +73,19 @@ button {
   color: #fff;
   border: none;
   cursor: pointer;
+}
+
+/* Stil für den Sprechblasen-Schwanz */
+.message::before {
+  content: '';
+  position: absolute;
+  right: -20px; /* Abstand vom rechten Rand */
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-left-color: #f0f0f0; /* Farbe des Sprechblasen-Schwanzes */
+  border-right: 0;
+  border-bottom: 0;
+  margin-top: -10px;
 }
