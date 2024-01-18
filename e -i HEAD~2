@@ -1,0 +1,119 @@
+[33mcommit 2b9eac09da8dea21e2bf37fc741581fb17a8cc7d[m[33m ([m[1;36mHEAD -> [m[1;32mFB[m[33m, [m[1;31morigin/FB[m[33m)[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Thu Jan 18 11:51:22 2024 +0100
+
+    RM deleted
+
+[33mcommit 94012505986fb6b792d9e7c8f050fd3e2b63d928[m
+Author: Flo-techstarter <127749928+Flo-techstarter@users.noreply.github.com>
+Date:   Thu Jan 18 11:32:28 2024 +0100
+
+    Fixed Syntax Error in Table "Comment"
+
+[33mcommit c271221bcaacab598b2176fe6dcafdc6deda97e6[m
+Author: Flo-techstarter <127749928+Flo-techstarter@users.noreply.github.com>
+Date:   Thu Jan 18 11:22:50 2024 +0100
+
+    Added Table Post and Comment
+    
+    Added the Tables "Post" and "Comment" for the Database
+
+[33mcommit 7a01013c0dca01eef56039e544aac52397b5bbf8[m
+Author: Flo-techstarter <127749928+Flo-techstarter@users.noreply.github.com>
+Date:   Wed Jan 17 11:52:58 2024 +0100
+
+    Update Readme.md
+    
+    Updated
+
+[33mcommit e5313ff64dcd3081f67e9137500b0a3862163660[m
+Author: Flo-techstarter <127749928+Flo-techstarter@users.noreply.github.com>
+Date:   Wed Jan 17 09:49:15 2024 +0100
+
+    Create Doku: Datenbank Brainstorming
+    
+    Dokumentation über SQL
+
+[33mcommit 767b2b52dd975944411cd3cbcd746464418bd873[m
+Author: Flo-techstarter <127749928+Flo-techstarter@users.noreply.github.com>
+Date:   Tue Jan 16 11:31:20 2024 +0100
+
+    Update Readme.md
+
+[33mcommit 2120953dbadd234a2346b3104a61839855feb71c[m
+Author: Florian Britz <florian.britz@docc.techstarter.de>
+Date:   Tue Jan 16 11:30:00 2024 +0100
+
+    Added Readme.md
+
+[33mcommit 16c31112f0e78d77e8bd167483fb3d7d4c3df1a9[m
+Author: Florian Britz <florian.britz@docc.techstarter.de>
+Date:   Tue Jan 16 11:23:16 2024 +0100
+
+    Updated .sql Script
+
+[33mcommit a858e0dc927a8723bda8aef2fe485e53a7a06dd5[m
+Author: Florian Britz <florian.britz@docc.techstarter.de>
+Date:   Mon Jan 15 14:00:02 2024 +0100
+
+    Takeover Database Script
+
+[33mcommit 539d3e9450f8883e001bdd618e3ac7d103ca79f9[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Sun Jan 14 14:25:15 2024 +0100
+
+    14.01.2024 - 14.25
+
+[33mcommit 3f4c880cafb3040e7c4638a3e57fbe0250e51144[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Fri Jan 12 14:25:38 2024 +0100
+
+    README
+
+[33mcommit f510e0b5bfc5637f977f1e4f71c6f2acaf716b77[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Fri Jan 12 14:18:40 2024 +0100
+
+    README
+
+[33mcommit 8d069116d282b178dbfa932fe4659fff5d709361[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Fri Jan 12 14:12:28 2024 +0100
+
+    aktuell 12.01 14.00 Uhr
+
+[33mcommit ab96fb39e41eb67e197030327da4d980dc61e147[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Fri Jan 12 14:09:30 2024 +0100
+
+    aktuell 12.01 14.00 Uhr
+
+[33mcommit b56fff670bf75c32a55481f6673c0176ddcdd0ef[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Fri Jan 12 11:10:42 2024 +0100
+
+    Logo Einbindung
+
+[33mcommit dbd47e6ddc410deefb7f9a053e03cd7b3f953678[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Fri Jan 12 11:08:54 2024 +0100
+
+    Logo Einbindung
+
+[33mcommit c54f854fd02dfae8c50559ada52a2151bc4a5f41[m[33m ([m[1;31morigin/SH[m[33m, [m[1;31morigin/MW[m[33m, [m[1;32mSH[m[33m, [m[1;32mMW[m[33m, [m[1;32mMR[m[33m, [m[1;32mKW[m[33m, [m[1;32mAB[m[33m)[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Thu Jan 11 12:39:23 2024 +0100
+
+    Initial commit
+
+[33mcommit fd8f924bc41a6bd3f22aa74a63ca8b68ec39bbad[m
+Author: Chris <christian.altenhofer@gmx.de>
+Date:   Thu Jan 11 15:14:29 2024 +0100
+
+    try
+
+[33mcommit c656063e3bffcf24918e7bbe6513bf45fbdfbed5[m
+Author: Christian Altenhofer <127749840+ChriZZ2406@users.noreply.github.com>
+Date:   Thu Jan 11 12:33:31 2024 +0100
+
+    Initial commit

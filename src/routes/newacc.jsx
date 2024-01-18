@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import '../newacc.css';
 
-const AccountErstellung = () => {
+const AccountErstellung = (props) => {
+  const { data } = props;
   const [Geburtsdatum, setGeburtsdatum] = useState('');
   const [Kurs, setKurs] = useState('');
 
