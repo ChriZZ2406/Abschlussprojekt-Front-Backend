@@ -1,0 +1,22 @@
+.app-container {
+    display: flex;
+  }
+  
+  .login-panel {
+    width: 200px;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Weitere Stilisierungen nach Bedarf */
+  
