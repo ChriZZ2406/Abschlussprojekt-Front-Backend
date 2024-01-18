@@ -74,7 +74,7 @@ const main = async () => {
     // Nutzer hinzufügen
     const ed = apiEvent.userData;  
 
-    console.log(apiEvent.userData)
+    // console.log(apiEvent.userData)
 
     // Check if user already exists in the database
     const [existingUser, _] = await sequelize.query(`
@@ -103,7 +103,7 @@ const main = async () => {
     }
 
     const [results, metadata] = await sequelize.query("SELECT * FROM User");
-    console.log(results);
+    // console.log(results);
     // console.log(metadata);
   } catch (error) {
     console.error("Unable to connect to the database:", error);
