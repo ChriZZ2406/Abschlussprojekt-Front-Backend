@@ -43,6 +43,8 @@
   background-color: #f0f0f0;
   color: darkblue;
   margin-right: 50px; /* Ändere diesen Wert, um die Sprechblasen horizontal zu versetzen */
+  margin-right: 50px; /* Ändere diesen Wert, um die Sprechblasen horizontal zu versetzen */
+  border: none; /* Entfernen Sie den Rahmen */
 }
 
 /* Benutzerinformationen-Stil in der Sprechblase, rechts ausgerichtet */
@@ -75,17 +77,4 @@ button {
   cursor: pointer;
 }
 
-/* Stil für den Sprechblasen-Schwanz */
-.message::before {
-  content: '';
-  position: absolute;
-  right: -20px; /* Abstand vom rechten Rand */
-  top: 50%;
-  width: 0;
-  height: 0;
-  border: 10px solid transparent;
-  border-left-color: #f0f0f0; /* Farbe des Sprechblasen-Schwanzes */
-  border-right: 0;
-  border-bottom: 0;
-  margin-top: -10px;
-}
+
