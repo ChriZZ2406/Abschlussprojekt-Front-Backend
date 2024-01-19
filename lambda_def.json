@@ -1,11 +1,8 @@
 {
-    "function_name": "xxx",
-    "http_method": "POST",
+    "function_name": "login-google",
+    "http_method": "GET",
     "api-endpoint": "/login/google",
     "policies": {
-        "s3": "read",
-        "dynamodb": "write",
-        "ecr": "sudo"
     },
     "pipeline": {
         "trigger": "xxx",
