@@ -29,7 +29,7 @@ function LoginGoogle() {
     async function sendDataToBackeEnd() {
       setIsLoading(true);
       try {
-        const response = await fetch("http://localhost:3000/login/google", {
+        const response = await fetch("https://845d97vw4k.execute-api.eu-central-1.amazonaws.com/login/google", {
 
         method: "POST",
           headers: {
