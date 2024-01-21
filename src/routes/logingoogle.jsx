@@ -1,121 +1,105 @@
 import React, { useState, useEffect } from "react";
 import NewAccount from "./newacc";
 
-const testData = {
-  userData: {
-    id: "222222222",
-    email: "iam133715@gmail.com",
-    provider: "google",
-    name: "1337lol15",
-    given_name: "Christian",
-    family_name: "Altenhofer",
-    picture:
-      "https://lh3.googleusercontent.com/a/ACg8ocIqaBD6Ind3rDHkOYM1ZBrZtCgEfAe6IRaZDrj7ERc=s96-c",
-  },
-  posts: {
-    test: "xxx",
-  },
-};
-
-console.log(testData);
-
 function LoginGoogle() {
-  const [data, setData] = useState([]);
-  const [usermail, setUserMail] = useState("Lädt...");
+    const [userData, setUserData] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
-  const [isLoading, setIsLoading] = useState(false);
+    // Funktion zum Abrufen von Benutzerdaten von Google People API
+    const fetchGoogleUserData = async (accessToken) => {
+        try {
+            const response = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            });
+            const data = await response.json();
+            console.log("Google Data:", data); // Debugging: Log Google Data
+            return data;
+        } catch (error) {
+            console.error("Fehler beim Abrufen von Google-Benutzerdaten.", error);
+            return null;
+        }
+    };
 
-  useEffect(() => {
-    async function sendDataToBackeEnd() {
-      setIsLoading(true);
-      try {
-        const response = await fetch("https://845d97vw4k.execute-api.eu-central-1.amazonaws.com/login/google", {
+    // Funktion zum Transformieren und Senden von Daten an das Backend
+    const sendDataToBackend = async (googleData) => {
+        const transformedData = {
+            id: googleData.sub, // Google 'sub' (subject) ist die Nutzer-ID
+            email: googleData.email,
+            provider: "google",
+            name: googleData.name,
+            given_name: googleData.given_name,
+            family_name: googleData.family_name,
+            picture: googleData.picture
+        };
 
-        method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(testData),
-        })
-          .then((response) => response.text())
-          .then((data) => console.log(data))
-          .catch((error) =>
-            console.error("Fehler beim Abruf der Daten.", error)
-          );
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
+        setIsLoading(true);
+        try {
+            const response = await fetch("https://845d97vw4k.execute-api.eu-central-1.amazonaws.com/login/google", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ userData: transformedData }),
+            });
+            const responseData = await response.json();
+            console.log("Response Data from Backend:", responseData); // Debugging: Log Backend Response
+            setUserData(responseData);
+        } catch (error) {
+            console.error("Fehler beim Abruf der Daten.", error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        let queryParams = new URLSearchParams(window.location.hash.substring(1));
+        const accessToken = queryParams.get('access_token');
+        console.log("Access Token:", accessToken); // Stellen Sie sicher, dass der Access Token vorhanden ist
+        if (accessToken) {
+            fetchGoogleUserData(accessToken).then(googleData => {
+                console.log("Google Data:", googleData); // Überprüfen Sie die von Google erhaltenen Daten
+                if (googleData) {
+                    sendDataToBackend(googleData);
+                } else {
+                    console.log("Google Data ist null oder undefined.");
+                }
+            });
+        }
+    }, []);
+
+    if (isLoading) {
+        return <div>Lädt...</div>;
     }
 
-    sendDataToBackeEnd();
-    // Query-Params abfangen
-    let queryParams = new URLSearchParams(window.location.hash.substring(1));
-    let data = [];
-    for (let [key, value] of queryParams.entries()) {
-      if (key === "access_token" || key === "scope") {
-        data.push({ [key]: value });
-      }
+    // Hier prüfen wir, ob userData und userData.email existieren
+    if (!userData || !userData.email) {
+        return <div>Keine Benutzerdaten gefunden.</div>;
     }
 
-    setData(data); // Setzt den extrahierten Daten in den Zustand
-
-    // Wenn der access_token vorhanden ist, führe den Fetch durch
-    const tokenObj = data.find((param) => param.access_token);
-    if (tokenObj) {
-      const token = tokenObj.access_token;
-      const googleURL = `https://irrybpov0k.execute-api.eu-central-1.amazonaws.com/login/google?token=${token}&provider=google`;
-      console.log(googleURL);
-
-      fetch(googleURL)
-        .then((response) => {
-          console.log(response);
-          return response.json();
-        })
-        .then((data) => {
-          console.log(data);
-          setData(testData);
-          if (testData.posts) {
-            // Leite User mit seinen Daten zum News Feed
-          } else {
-            // Leite User mit seinen Daten zu New Account
-            window.location.href("http://localhost:5174/newacc");
-          }
-          //setUserMail(data.email || "Keine E-Mail-Adresse gefunden.");
-        })
-        .catch((e) => {
-          console.log("Fehler beim Abrufen der Benutzerdaten:", e);
-          setUserMail("Fehler beim Abrufen der Daten.");
-          setData(testData);
-        });
-    }
-  }, []);
-
-  return (
-    <>
-      {data.posts ? (
+    // Die E-Mail wird jetzt aus dem userData-Objekt ausgelesen
+    return (
         <>
-          <h1>Weiterleitung des User an News Feed</h1>
-          <NewAccount data={testData} />
+            {userData.posts ? (
+                <>
+                    <h1>Weiterleitung des User an News Feed</h1>
+                    <NewAccount data={userData} />
+                </>
+            ) : (
+                <>
+                    <h1>Hier wird der User zu New Account weitergeleitet</h1>
+                    <p>
+                        <a href="/">Home</a>
+                    </p>
+                    <article>
+                        {/* Hier wird die E-Mail direkt aus dem userData-Objekt gerendert */}
+                        <div>Usermail: {userData.email}</div>
+                    </article>
+                </>
+            )}
         </>
-      ) : (
-        <>
-          <h1>Hier wird der User zu New Account weitergeleitet</h1>
-          <p>
-            <a href="/">Home</a>
-          </p>
-          <article>
-            {/* {data.map((paramObj, index) => {
-                            const [key, value] = Object.entries(paramObj)[0];
-                            return <div key={index}>{key}: {value}</div>;
-                        })} */}
-            <div>Usermail: {usermail}</div>
-          </article>
-        </>
-      )}
-    </>
-  );
+    );
 }
 
 export default LoginGoogle;
