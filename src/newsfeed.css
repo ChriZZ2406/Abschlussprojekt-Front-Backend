@@ -40,9 +40,15 @@
  }
  
  /* Container für Nachrichten, vertikal ausgerichtet */
- .messages {
+ /*.messages {
   display: flex;
-  flex-direction: column; /* Änderung auf Spaltenausrichtung */
+  flex-direction: column-reverse;
+  overflow-y: auto;
+  max-height: calc(150vh-50px); /* Adjust this value according to your needs */ /*
+ } */
+ .messages {
+  height: 600px; /* oder jede andere Höhe, die man möchte wünschen */
+  overflow-y: auto;
  }
  
  /* Stil für jede Nachricht */
