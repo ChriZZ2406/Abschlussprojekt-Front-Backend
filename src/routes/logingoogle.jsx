@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import NewAccount from "./newacc";
+import { useNavigate } from 'react-router-dom';
+import AccountErstellung from "./newacc"; // Import der AccountErstellung Komponente
 
 function LoginGoogle() {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate(); // Verwenden von useNavigate
 
   // Funktion zum Abrufen von Benutzerdaten von Google People API
   const fetchGoogleUserData = async (accessToken) => {
@@ -17,7 +19,7 @@ function LoginGoogle() {
         }
       );
       const data = await response.json();
-      console.log("Google Data:", data); // Debugging: Log Google Data
+      console.log("Google Data:", data);
       return data;
     } catch (error) {
       console.error("Fehler beim Abrufen von Google-Benutzerdaten.", error);
@@ -30,7 +32,7 @@ function LoginGoogle() {
     const truncatedId = googleData.sub.slice(0, 9);
 
     const transformedData = {
-      id: truncatedId, // Google 'sub' (subject) ist die Nutzer-ID
+      id: truncatedId,
       email: googleData.email,
       provider: "google",
       name: googleData.name,
@@ -52,7 +54,7 @@ function LoginGoogle() {
         }
       );
       const responseData = await response.json();
-      console.log("Response Data from Backend:", responseData); // Debugging: Log Backend Response
+      console.log("Response Data from Backend:", responseData);
       setUserData(responseData);
     } catch (error) {
       console.error("Fehler beim Abruf der Daten.", error);
@@ -64,57 +66,36 @@ function LoginGoogle() {
   useEffect(() => {
     let queryParams = new URLSearchParams(window.location.hash.substring(1));
     const accessToken = queryParams.get("access_token");
-    console.log("Access Token:", accessToken); // Stellen Sie sicher, dass der Access Token vorhanden ist
     if (accessToken) {
       fetchGoogleUserData(accessToken).then((googleData) => {
-        console.log("Google Data:", googleData); // Überprüfen Sie die von Google erhaltenen Daten
         if (googleData) {
           sendDataToBackend(googleData);
-        } else {
-          console.log("Google Data ist null oder undefined.");
         }
       });
     }
   }, []);
 
+  useEffect(() => {
+    if (userData) {
+      if (userData.email) {
+        navigate('/newsfeed'); // Weiterleitung zu News Feed
+      } else {
+        navigate('/newacc'); // Weiterleitung zu AccountErstellung
+      }
+    }
+  }, [userData, navigate]);
+
   if (isLoading) {
     return <div>Lädt...</div>;
   }
 
-  // Hier prüfen wir, ob userData und userData.email existieren
+  // Wenn keine Benutzerdaten vorhanden sind, wird eine Nachricht angezeigt.
   if (!userData || !userData.email) {
-    return (
-      <div>
-        {" "}
-        <p>
-          <a href="/newsfeed">Hier gehts zum Newsfeed!</a>
-        </p>
-      </div>
-    );
+    return <div><p>Keine Benutzerdaten vorhanden. Bitte loggen Sie sich ein.</p></div>;
   }
 
-  // Die E-Mail wird jetzt aus dem userData-Objekt ausgelesen
-  return (
-    <>
-      {userData.posts ? (
-        <>
-          <h1>Weiterleitung des User an News Feed</h1>
-          <NewAccount data={userData} />
-        </>
-      ) : (
-        <>
-          <h1>Hier wird der User zu New Account weitergeleitet</h1>
-          <p>
-            <a href="/newaccount">NewAccount</a>
-          </p>
-          <article>
-            {/* Hier wird die E-Mail direkt aus dem userData-Objekt gerendert */}
-            <div>Usermail: {userData.email}</div>
-          </article>
-        </>
-      )}
-    </>
-  );
+  // Keine Notwendigkeit für einen weiteren Render-Block, da die Weiterleitung oben gehandhabt wird.
+  return null;
 }
 
 export default LoginGoogle;
