@@ -1,0 +1,36 @@
+name: Upload a Docker image to AWS ECR
+
+on:
+  push:
+    branches:
+      - nick-pipeline
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build Docker Image
+        run: |
+          docker build -t frontend-image .
+
+      - name: Amazon ECR Login
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Tag Docker Image
+        run: docker tag frontend-image ${{ steps.login-ecr.outputs.registry }}:v0.1
+
+      - name: Push Docker Image to ECR
+        run: docker push ${{ steps.login-ecr.outputs.registry }}:v0.1
