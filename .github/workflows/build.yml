@@ -3,7 +3,7 @@ name: Upload a Docker image to AWS ECR
 on:
   push:
     branches:
-      - nick-pipeline
+      - main
 
 jobs:
   build:
