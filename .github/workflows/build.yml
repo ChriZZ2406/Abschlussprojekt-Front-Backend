@@ -30,7 +30,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Tag Docker Image
-        run: docker tag frontend-image ${{ steps.login-ecr.outputs.registry }}:v0.1
+        run: docker tag frontend-image ${{ steps.login-ecr.outputs.registry }}:latest
 
       - name: Push Docker Image to ECR
-        run: docker push ${{ steps.login-ecr.outputs.registry }}:v0.1
+        run: docker push ${{ steps.login-ecr.outputs.registry }}:latest
