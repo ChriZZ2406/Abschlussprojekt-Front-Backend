@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import von useHistory
 import '../newacc.css';
 
-const AccountErstellung = () => {
+const AccountErstellung = (props) => {
+  const { userData } = props;
   const [Geburtsdatum, setGeburtsdatum] = useState('');
   const [Kurs, setKurs] = useState('');
+  const navigate = useNavigate(); // Erstellen einer Instanz von useHistory
 
   const handleCreateAccount = () => {
     console.log('Account erstellen:', { Geburtsdatum, Kurs });
+    navigate('/'); // Weiterleitung zu Home
   };
 
   return (
@@ -27,8 +31,6 @@ const AccountErstellung = () => {
         />
       </div>
       <button onClick={handleCreateAccount}>Account erstellen</button>
-
-      {/* Hinzugefügt: Home Link */}
       <p><a href="/">Home</a></p>
     </div>
   );

@@ -1,0 +1,19 @@
+{
+    "function_name": "login-google",
+    "http_method": "GET",
+    "api-endpoint": "/login/google",
+    "policies": {
+    },
+    "pipeline": {
+        "trigger": "xxx",
+        "date": "xxx",
+        "meta": "xxx"
+        },
+    "meta": { 
+        "foo": "bar",
+        "tags": {
+            "environment": "dev",
+            "deploy": "terraform"
+            } 
+        }
+}
