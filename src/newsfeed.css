@@ -1,0 +1,116 @@
+/* newsfeed.css */
+
+/* Flex-Container für die gesamte App, vertikal ausgerichtet */
+.app {
+  display: flex;
+  flex-direction: column; /* Änderung der Ausrichtung auf Spalten */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ }
+ 
+ /* Logo-Styling */
+ .logo {
+  height: 100px;
+  width: auto;
+  padding: 1.5em;
+  margin-bottom: 2rem;
+  will-change: filter;
+  transition: filter 300ms;
+ }
+ 
+ /* Chat-Fenster-Styling */
+ .chat {
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+ 
+ body {
+  font-family: 'Caviar Dreams', sans-serif;
+ }
+ 
+ .message {
+  background-color: #ffff66; /* Helgelber Hintergrund */
+  color: darkblue; /* Dunkelblauer Text */
+ }
+ 
+ .user-info {
+  color: darkblue; /* Dunkelblauer Text */
+ }
+ 
+ /* Container für Nachrichten, vertikal ausgerichtet */
+ /*.messages {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: auto;
+  max-height: calc(150vh-50px); /* Adjust this value according to your needs */ /*
+ } */
+ .messages {
+  height: 600px; /* oder jede andere Höhe, die man möchte wünschen */
+  overflow-y: auto;
+ }
+ 
+ /* Stil für jede Nachricht */
+ .message {
+  position: relative;
+  max-width: 70%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+  color: darkblue;
+  margin-right: 50px; /* Ändere diesen Wert, um die Sprechblasen horizontal zu versetzen */
+  border: none; /* Entfernen Sie den Rahmen */
+  overflow: hidden; /* Verberge den Inhalt, der aus dem Rahmen herausragt */
+ }
+ 
+ /* Benutzerinformationen-Stil in der Sprechblase, rechts ausgerichtet */
+ .user-info {
+  align-self: flex-end; /* Rechtsausrichtung für Benutzerinformationen */
+  margin-right: 5px; /* Margin für die Positionierung */
+  font-size: 0.8em;
+  color: #999;
+ }
+ 
+ /* Stil für den Eingabecontainer */
+ .input-container {
+  display: flex;
+  margin-top: 10px;
+ }
+ 
+ /* Stil für das Eingabefeld */
+ input {
+  flex: 1;
+  padding: 5px;
+  margin-right: 5px;
+  background-image: url('/home/debian/Abschlussprojekt-Front-Backend/src/routes/picture/upload.png'); /* Pfad zum Icon */
+  background-size: 20px 20px; /* Anpassung der Größe des Symbols */
+  background-repeat: no-repeat;
+  background-position: right; /* Positioniert das Icon rechts im Eingabefeld */
+ }
+ 
+ 
+ /* Stil für den Senden-Button */
+ button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+ }
+ 
+ .upload-button {
+  float: left;
+ }
+
+ /* Stil für den Upload-Button */
+ .download-button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  content: "\2B06"; /* Unicode für das Upload-Symbol */
+ }
+ 

@@ -18,6 +18,10 @@ const router = createBrowserRouter([
     element: <AccountErstellung />,
   },
   {
+    path: "/newsfeed",
+    element: <NewsFeed />,
+  },
+  {
     path: "/login/google",
     element: <LoginGoogle />,
   },

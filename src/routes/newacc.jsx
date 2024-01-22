@@ -10,7 +10,7 @@ const AccountErstellung = (props) => {
 
   const handleCreateAccount = () => {
     console.log('Account erstellen:', { Geburtsdatum, Kurs });
-    navigate('/'); // Weiterleitung zur Startseite
+    navigate('/'); // Weiterleitung zu Home
   };
 
   return (
