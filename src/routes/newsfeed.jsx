@@ -16,7 +16,7 @@ const Reactions = ({ reactions }) => (
   </div>
 );
 
-const App = () => {
+const newsFeed = () => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [images, setImages] = useState([]);
@@ -80,4 +80,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default newsFeed;

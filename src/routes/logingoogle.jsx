@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import AccountErstellung from "./newacc"; // Import der AccountErstellung Komponente
+import newsFeed from './newsfeed';
+import AccountErstellung from './newacc'; // Import der AccountErstellung Komponente
 
 function LoginGoogle() {
   const [userData, setUserData] = useState(null);
