@@ -78,7 +78,11 @@ function LoginGoogle() {
   }
 
   if (!userData || !userData.email) {
-    return <div><p>Keine Benutzerdaten vorhanden. Bitte loggen Sie sich ein.</p></div>;
+    return (
+      <div>
+        <p>Keine Benutzerdaten vorhanden. Bitte loggen Sie sich ein.</p>
+      </div>
+    );
   }
 
   return null;
