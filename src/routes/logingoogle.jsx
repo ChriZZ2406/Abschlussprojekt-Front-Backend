@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import newsFeed from './newsfeed';
-import AccountErstellung from './newacc'; // Import der AccountErstellung Komponente
 
 function LoginGoogle() {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const navigate = useNavigate(); // Verwenden von useNavigate
+  const navigate = useNavigate();
 
-  // Funktion zum Abrufen von Benutzerdaten von Google People API
   const fetchGoogleUserData = async (accessToken) => {
     try {
       const response = await fetch(
         "https://www.googleapis.com/oauth2/v3/userinfo",
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
+        { headers: { Authorization: `Bearer ${accessToken}` } }
       );
       const data = await response.json();
       console.log("Google Data:", data);
@@ -28,37 +21,41 @@ function LoginGoogle() {
     }
   };
 
-  // Funktion zum Transformieren und Senden von Daten an das Backend
-  const sendDataToBackend = async (googleData) => {
-    const truncatedId = googleData.sub.slice(0, 9);
-
-    const transformedData = {
-      id: truncatedId,
-      email: googleData.email,
-      provider: "google",
-      name: googleData.name,
-      given_name: googleData.given_name,
-      family_name: googleData.family_name,
-      picture: googleData.picture,
-    };
-
+  const sendDataToBackend = async (googleData, accessToken) => {
     setIsLoading(true);
     try {
-      const response = await fetch(
+      const response = await fetch('https://845d97vw4k.execute-api.eu-central-1.amazonaws.com/login/googlefetch', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ accessToken: accessToken })
+      });
+
+      const responseFetch = await response.json();
+      console.log("responseData from googlefetch", responseFetch);
+
+      const responseToBackend = await fetch(
         "https://845d97vw4k.execute-api.eu-central-1.amazonaws.com/login/google",
         {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userData: transformedData }),
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ user: responseFetch.user })
         }
       );
-      const responseData = await response.json();
+
+      const responseData = await responseToBackend.json();
       console.log("Response Data from Backend:", responseData);
       setUserData(responseData);
+      localStorage.setItem("Session", JSON.stringify(responseData.sessionData));
+
+      if (responseData.isNewUser = false) {
+        navigate("/newacc");
+      }
+      else {
+        navigate("/newsfeed");
+      }
+
     } catch (error) {
-      console.error("Fehler beim Abruf der Daten.", error);
+      console.error("Fehler beim Senden der Daten an das Backend.", error);
     } finally {
       setIsLoading(false);
     }
@@ -70,32 +67,20 @@ function LoginGoogle() {
     if (accessToken) {
       fetchGoogleUserData(accessToken).then((googleData) => {
         if (googleData) {
-          sendDataToBackend(googleData);
+          sendDataToBackend(googleData, accessToken);
         }
       });
     }
   }, []);
 
-  useEffect(() => {
-    if (userData) {
-      if (userData.email) {
-        navigate('/newsfeed'); // Weiterleitung zu News Feed
-      } else {
-        navigate('/newacc'); // Weiterleitung zu AccountErstellung
-      }
-    }
-  }, [userData, navigate]);
-
   if (isLoading) {
     return <div>Lädt...</div>;
   }
 
-  // Wenn keine Benutzerdaten vorhanden sind, wird eine Nachricht angezeigt.
   if (!userData || !userData.email) {
     return <div><p>Keine Benutzerdaten vorhanden. Bitte loggen Sie sich ein.</p></div>;
   }
 
-  // Keine Notwendigkeit für einen weiteren Render-Block, da die Weiterleitung oben gehandhabt wird.
   return null;
 }
 
